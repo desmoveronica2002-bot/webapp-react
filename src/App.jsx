@@ -1,12 +1,15 @@
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-
   return (
-    <>
-      <h1>film</h1>
-
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<DefaultLayout />}>
+          <Route path="/films/:filmsId" element={<FilmPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
