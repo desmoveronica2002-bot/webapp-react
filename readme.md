@@ -34,3 +34,11 @@ Dipendenze
 - boostrap
 - boostrap-icons 
 - fontsurce roboto
+
+
+Steps 
+
+- install dipendencies 
+- create the first router 
+- create the default layout 
+- create an home page component 
