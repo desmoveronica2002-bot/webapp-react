@@ -3,12 +3,11 @@ import { Outlet } from 'react-router-dom'
 export default function DefaultLayout() {
   return (
     <>
-
-       <header>header</header>
+       <AppHeader />
        <main>
         <Outlet />
        </main>
-       <footer>footer</footer>
+       <AppFooter />
     
     
     </>
