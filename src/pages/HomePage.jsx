@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import FilmCard from "../components/FilmCard"
 
 export default function HomePage() {
 
@@ -33,14 +34,9 @@ export default function HomePage() {
         <div className="container">
           <h2 className="text-muted">Films</h2>
           <div className="row">
-            <div className="col">
-              <img src="https://placeholder.com/300x400" alt="Film poster" className="card-img-top" />
-              <div className="card-body">
-                <h5 className="card-title">Film Title</h5>
-                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien augue.</p>
-                <a href="#" className="btn btn-primary">Read reviews</a>
-              </div>
-            </div>
+            {films.map(film => (
+              <FilmCard key={film.id} film={film} />
+            ))}
           </div>
         </div>
       </section>
