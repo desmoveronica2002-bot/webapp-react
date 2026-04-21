@@ -1,7 +1,7 @@
 
 MILESTONE 0
 
-Ragionare e preparare uno schemino per ompostare la struttura del lavoro in maniera da sfruttare la riutailizzabilità dei componenti React e le loro props.
+Ragionare e preparare uno schemino per impostare la struttura del lavoro in maniera da sfruttare la riutailizzabilità dei componenti React e le loro props.
 
 MILESTONE 1
 
@@ -27,3 +27,10 @@ In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere 
 
 Bonus
 Curare l’aspetto estetico della vostra applicazione
+
+
+Dipendenze 
+- react router 
+- boostrap
+- boostrap-icons 
+- fontsurce roboto
