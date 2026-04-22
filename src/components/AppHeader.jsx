@@ -29,10 +29,6 @@ export default function AppHeader() {
                 </NavLink>
               </li>
 
-              <li className="nav-item">
-                <a className="nav-link" href="a">Films</a>
-              </li>
-
             </ul>
 
           </div>
