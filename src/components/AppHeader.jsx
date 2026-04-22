@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function AppHeader() {
   return (
@@ -6,7 +6,9 @@ export default function AppHeader() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
 
-          <a className="navbar-brand" href="a">Films Reviews</a>
+          <NavLink className="navbar-brand" to="/">
+            Films Reviews
+          </NavLink>
 
           <button
             className="navbar-toggler"
@@ -22,7 +24,9 @@ export default function AppHeader() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li className="nav-item">
-                <a className="nav-link active" href="a">Home</a>
+                <NavLink className="nav-link" to="/" activeClassName="active" exact>
+                  Home
+                </NavLink>
               </li>
 
               <li className="nav-item">
