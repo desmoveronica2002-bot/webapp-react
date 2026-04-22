@@ -27,7 +27,7 @@ export default function FilmPage() {
 
           <div className="col-md-6">
             <div className="h-100 p-5 text-white">
-              <img src={film?.image} alt={film?.title} className="img-fluid" />
+              <img src={`${backendServerAddress}/img/${film?.image}`}alt={film?.title} className="img-fluid"/>
             </div>
           </div>
 
