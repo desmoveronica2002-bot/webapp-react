@@ -24,6 +24,7 @@ export default function FilmPage() {
       <div className="row align-items-md-stretch">
         <div className="col-md-6">
           <div className="h-100 p-5 text-white">
+            <img src={film?.image} alt={film?.title} className="img-fluid" />
 
 
           </div>
@@ -32,9 +33,12 @@ export default function FilmPage() {
 
         <div className="col-md-6">
           <div className="h-100 p-5">
-          <h2>uuuuuuu</h2>
-          <p>uuuuuuu</p>
-          <button className="btn btn" type="button">Button</button>
+            <h2>{film?.title}</h2>
+            <div className="card-text">release year: {film?.release_year}</div>
+            <div className="card-text">director: {film?.director}</div>
+            <div className="card-text">created at: {film.created_at}</div>
+            <div className="card-text">updated at: {film.updated_at}</div>
+            <p className="lead">{film?.abstract}</p>
           </div>
 
           </div>
