@@ -24,9 +24,7 @@ export default function AppHeader() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li className="nav-item">
-                <NavLink className="nav-link" to="/" activeClassName="active" exact>
-                  Home
-                </NavLink>
+                <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Home</NavLink>
               </li>
 
             </ul>
