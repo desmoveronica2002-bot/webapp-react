@@ -9,11 +9,8 @@ return (
         <div className="card-text">director: {film.director}</div>
         <div className="card-text">genre: {film.genrer}</div>
         <div className="card-text">release year: {film.release_year}</div>
-        <div className="card-text">abstract: {film.abstract}</div>
-        <div className="card-text">created at: {film.created_at}</div>
-        <div className="card-text">updated at: {film.updated_at}</div>
         {/*<p className="card-text">Rating: {film.rating}/5</p>}*/}
-        <a href="#" className="btn btn-primary">Read Review</a>
+        <link to={`/films/${film.id}`} className="btn btn-primary">Read Review</link>
       </div>
     </div>
   </div>

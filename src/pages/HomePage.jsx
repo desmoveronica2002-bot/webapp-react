@@ -4,14 +4,13 @@ import FilmCard from "../components/FilmCard"
 export default function HomePage() {
 
 
-  const {films, setFilms} = useState([])
+  const [films, setFilms] = useState([])
 
   useEffect(() => {
      const api_url = import.meta.env.VITE_API_SERVER_ADDRESS + "/api/films";
       fetch(api_url)
       .then(res => res.json())
       .then(data => setFilms(data))
-
   }, [])
 
 
@@ -34,7 +33,7 @@ export default function HomePage() {
         <div className="container">
           <h2 className="text-muted">Films</h2>
           <div className="row">
-            {films.map(film => (
+            {films?.map(film => (
               <FilmCard key={film.id} film={film} />
             ))}
           </div>
