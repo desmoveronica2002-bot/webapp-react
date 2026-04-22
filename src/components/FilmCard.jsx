@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function FilmCard({ film }) {
 
 return (
@@ -10,7 +12,7 @@ return (
         <div className="card-text">genre: {film.genrer}</div>
         <div className="card-text">release year: {film.release_year}</div>
         {/*<p className="card-text">Rating: {film.rating}/5</p>}*/}
-        <link to={`/films/${film.id}`} className="btn btn-primary">Read Review</link>
+        <Link to={`/films/${film.id}`} className="btn btn-primary">Read Review</Link>
       </div>
     </div>
   </div>
