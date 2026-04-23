@@ -5,6 +5,8 @@ import ReviewForm from "../components/ReviewForm";
 export default function FilmPage() {
 
   const [film, setFilm] = useState(null);
+  const [reviews, setReviews] = useState([]);
+
   const { filmId } = useParams();
 
   const backendServerAddress = import.meta.env.VITE_API_SERVER_ADDRESS;
@@ -15,10 +17,21 @@ export default function FilmPage() {
       .then(data => setFilm(data));
   };
 
+  const fetchReviews = () => {
+    fetch(`${backendServerAddress}/api/reviews`)
+      .then(res => res.json())
+      .then(data => setReviews(data));
+  };
+
   useEffect(() => {
     fetchFilm();
+    fetchReviews();
   }, [filmId]);
 
+  // filtro recensioni per film corrente
+  const filteredReviews = reviews.filter(
+    (review) => review.movie_id == filmId
+  );
 
   return (
     <>
@@ -27,7 +40,11 @@ export default function FilmPage() {
 
           <div className="col-md-6">
             <div className="h-100 p-5 text-white">
-              <img src={`${backendServerAddress}/img/${film?.image}`}alt={film?.title} className="img-fluid"/>
+              <img
+                src={`${backendServerAddress}/img/${film?.image}`}
+                alt={film?.title}
+                className="img-fluid"
+              />
             </div>
           </div>
 
@@ -43,13 +60,16 @@ export default function FilmPage() {
         </div>
       </div>
 
-      <ReviewForm filmId={filmId}onReviewAdded={fetchFilm}/>
+      <ReviewForm
+        filmId={filmId}
+        onReviewAdded={fetchReviews}
+      />
 
       <div className="container mt-5">
         <h3>Reviews</h3>
 
         <div className="list-group">
-          {film?.reviews?.map(review => (
+          {filteredReviews.map(review => (
             <div key={review.id} className="list-group-item">
               <h5>{review.name} - {review.vote}/5</h5>
               <p>{review.text}</p>
