@@ -27,7 +27,7 @@ export default function ReviewForm({ filmId }) {
 
       // reset form
       setName("");
-      setVote("");
+      setVote(1);
       setText("");
     });
   };
@@ -53,7 +53,7 @@ export default function ReviewForm({ filmId }) {
           <select
             className="form-select"
             value={vote}
-            onChange={(e) => setVote(e.target.value)}
+            onChange={(e) => setVote(Number(e.target.value))}
           >
             <option value="1">1</option>
             <option value="2">2</option>

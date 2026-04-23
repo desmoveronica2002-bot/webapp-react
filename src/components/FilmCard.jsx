@@ -8,13 +8,7 @@ export default function FilmCard({ film }) {
     <div className="col d-flex">
       <div className="card h-100 w-100">
 
-        {film.image && (
-          <img
-            src={`${backendServerAddress}/img/${film.image}`}
-            className="card-img-top film-img"
-            alt="Film Cover"
-          />
-        )}
+        {film.image && (<img src={`${backendServerAddress}/img/${film.image}`}  className="card-img-top film-img" alt="Film Cover"/>)}
 
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">{film.title}</h5>
