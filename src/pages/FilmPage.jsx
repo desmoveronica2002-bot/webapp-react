@@ -28,7 +28,6 @@ export default function FilmPage() {
     fetchReviews();
   }, [filmId]);
 
-  // filtro recensioni per film corrente
   const filteredReviews = reviews.filter(
     (review) => review.movie_id == filmId
   );
@@ -40,11 +39,7 @@ export default function FilmPage() {
 
           <div className="col-md-6">
             <div className="h-100 p-5 text-white">
-              <img
-                src={`${backendServerAddress}/img/${film?.image}`}
-                alt={film?.title}
-                className="img-fluid"
-              />
+              <img src={`${backendServerAddress}/img/${film?.image}`} alt={film?.title} className="img-fluid"/>
             </div>
           </div>
 
@@ -60,10 +55,7 @@ export default function FilmPage() {
         </div>
       </div>
 
-      <ReviewForm
-        filmId={filmId}
-        onReviewAdded={fetchReviews}
-      />
+      <ReviewForm filmId={filmId} onReviewAdded={fetchReviews} />
 
       <div className="container mt-5">
         <h3>Reviews</h3>
