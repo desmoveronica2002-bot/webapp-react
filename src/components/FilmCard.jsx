@@ -11,7 +11,7 @@ export default function FilmCard({ film }) {
         {film.image && (
           <img
             src={`${backendServerAddress}/img/${film.image}`}
-            className="card-img-top"
+            className="card-img-top film-img"
             alt="Film Cover"
           />
         )}
