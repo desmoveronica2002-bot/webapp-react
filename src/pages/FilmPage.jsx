@@ -1,31 +1,34 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReviewForm from "../components/ReviewForm";
+import { useLoader } from "../context/LoaderContext";
 
 export default function FilmPage() {
-
   const [film, setFilm] = useState(null);
   const [reviews, setReviews] = useState([]);
 
   const { filmId } = useParams();
+  const { showLoader, hideLoader } = useLoader();
 
   const backendServerAddress = import.meta.env.VITE_API_SERVER_ADDRESS;
 
   const fetchFilm = () => {
-    fetch(`${backendServerAddress}/api/films/${filmId}`)
-      .then(response => response.json())
+    return fetch(`${backendServerAddress}/api/films/${filmId}`)
+      .then(res => res.json())
       .then(data => setFilm(data));
   };
 
   const fetchReviews = () => {
-    fetch(`${backendServerAddress}/api/reviews`)
+    return fetch(`${backendServerAddress}/api/reviews`)
       .then(res => res.json())
       .then(data => setReviews(data));
   };
 
   useEffect(() => {
-    fetchFilm();
-    fetchReviews();
+    showLoader();
+
+    Promise.all([fetchFilm(), fetchReviews()])
+      .finally(() => hideLoader());
   }, [filmId]);
 
   const filteredReviews = reviews.filter(
@@ -39,7 +42,11 @@ export default function FilmPage() {
 
           <div className="col-md-6">
             <div className="h-100 p-5 text-white">
-              <img src={`${backendServerAddress}/img/${film?.image}`} alt={film?.title} className="img-fluid"/>
+              <img
+                src={`${backendServerAddress}/img/${film?.image}`}
+                alt={film?.title}
+                className="img-fluid"
+              />
             </div>
           </div>
 
